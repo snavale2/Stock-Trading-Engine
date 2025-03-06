@@ -15,7 +15,7 @@ class OrderBook {
 
     /**
      * Adds a new order to the order book and attempts to match it.
-     * @param order The order to be added and processed
+     * The order to be added and processed
      */
     public void addOrder(Order order) {
         TradingSimulation.writeOrderOutput(order);
@@ -30,9 +30,9 @@ class OrderBook {
     /**
      * Inserts a buy order into the sorted buy orders list.
      * Orders are sorted by price in descending order.
-     * @param order The buy order to insert
+     * The buy order to insert
      */
-    private void insertSortedBuy(Order order) {    //check if the better approach is to use a single method for both buy and sell and for sorting
+    private void insertSortedBuy(Order order) {    
         Order prev = null, curr = buyRef.get();
         while (curr != null && curr.price >= order.price) {
             prev = curr;
@@ -49,7 +49,7 @@ class OrderBook {
     /**
      * Inserts a sell order into the sorted sell orders list.
      * Orders are sorted by price in ascending order.
-     * @param order The sell order to insert
+     * The sell order to insert
      */
     private void insertSortedSell(Order order) {
         Order prev = null, curr = sellRef.get();

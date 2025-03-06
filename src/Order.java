@@ -16,10 +16,10 @@ class Order {
 
     /**
      * Creates a new order with the specified parameters
-     * @param orderTypeIn Type of order (BUY/SELL)
-     * @param tickerIn Stock ticker symbol
-     * @param quantityIn Number of shares
-     * @param priceIn Price per share
+     * orderTypeIn: Type of order (BUY/SELL)
+     * tickerIn: Stock ticker symbol
+     * quantityIn: Number of shares
+     * priceIn: Price per share
      */
     public Order(OrderType orderTypeIn, String tickerIn, int quantityIn, double priceIn) {
         orderType = orderTypeIn;

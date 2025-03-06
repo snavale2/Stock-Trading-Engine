@@ -98,7 +98,7 @@ class TradingSimulation {
 
     /**
      * Generates a random order with randomized type, ticker, quantity, and price.
-     * @return A new random Order object
+     * return A new random Order object
      */
     private Order generateRandomOrder() {
         Order.OrderType type = random.nextBoolean() ? Order.OrderType.BUY : Order.OrderType.SELL;
@@ -145,7 +145,7 @@ class TradingSimulation {
 
     /**
      * Creates a set of predefined test orders to validate the trading engine.
-     * @return Array of test orders covering various trading scenarios
+     * return Array of test orders covering various trading scenarios
      */
     private Order[] getTestOrders() {
         return new Order[] {
