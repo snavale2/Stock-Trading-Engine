@@ -18,7 +18,7 @@ class OrderBook {
      * @param order The order to be added and processed
      */
     public void addOrder(Order order) {
-        TradingSimulation.writeOutput("Adding Order: " + order);
+        TradingSimulation.writeOrderOutput(order);
         if (order.orderType == Order.OrderType.BUY) {
             insertSortedBuy(order);
         } else {
@@ -98,8 +98,7 @@ class OrderBook {
                         continue; // Retry if CAS fails
                     }
                 }
-                TradingSimulation.writeOutput("Trade Executed: " + tradedQuantity + " shares of " +
-                     buyOrder.ticker +" BuyOrder "+buyOrder.quantity+ " SellOrder "+ sellOrder.quantity + " at $" + sellOrder.price);
+                TradingSimulation.writeTradeOutput(buyOrder, sellOrder, tradedQuantity);
 
             } else {
                 return; // No match possible

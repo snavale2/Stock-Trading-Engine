@@ -17,6 +17,8 @@ class TradingSimulation {
     private static FileWriter outputWriter;
     private final AtomicInteger orderCount = new AtomicInteger(0);
     private final int totalOrders;
+    private static final String ORDER_FORMAT = "%-8s | %-10s | %6d | $%-8.2f%n";
+    private static final String TRADE_FORMAT = "%-8s | %-10s | %6d | $%-8.2f | Buy: %d | Sell: %d%n";
 
     /**
      * Initializes the simulation by setting up output, loading properties,
@@ -35,6 +37,11 @@ class TradingSimulation {
     private void setupOutput() {
         try {
             outputWriter = new FileWriter("trading_output.txt", false);
+            // Write headers
+            writeOutput("=".repeat(60));
+            writeOutput(String.format("%-8s | %-10s | %6s | %-8s", 
+                "TYPE", "TICKER", "SHARES", "PRICE"));
+            writeOutput("=".repeat(60));
         } catch (IOException e) {
             Logger.logError("Failed to setup output file", e);
         }
@@ -47,6 +54,28 @@ class TradingSimulation {
         } catch (IOException e) {
             Logger.logError("Failed to write output", e);
         }
+    }
+
+    public static void writeOrderOutput(Order order) {
+        String formattedOutput = String.format(ORDER_FORMAT,
+            order.orderType,
+            order.ticker,
+            order.quantity,
+            order.price
+        );
+        writeOutput(formattedOutput);
+    }
+
+    public static void writeTradeOutput(Order buyOrder, Order sellOrder, int tradedQuantity) {
+        String formattedOutput = String.format(TRADE_FORMAT,
+            "TRADE",
+            buyOrder.ticker,
+            tradedQuantity,
+            sellOrder.price,
+            buyOrder.quantity,
+            sellOrder.quantity
+        );
+        writeOutput(formattedOutput);
     }
 
     private void loadProperties() {
@@ -147,6 +176,7 @@ class TradingSimulation {
         Order[] testOrders = getTestOrders();
         for (Order order : testOrders) {
             exchange.addOrder(order.ticker, order);
+            writeOrderOutput(order);
             try {
                 Thread.sleep(100); // Small delay between orders
             } catch (InterruptedException e) {
