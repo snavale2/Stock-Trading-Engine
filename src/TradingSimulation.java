@@ -176,7 +176,6 @@ class TradingSimulation {
         Order[] testOrders = getTestOrders();
         for (Order order : testOrders) {
             exchange.addOrder(order.ticker, order);
-            writeOrderOutput(order);
             try {
                 Thread.sleep(100); // Small delay between orders
             } catch (InterruptedException e) {
