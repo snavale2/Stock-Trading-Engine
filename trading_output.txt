@@ -1,0 +1,33 @@
+============================================================
+TYPE     | TICKER     | SHARES | PRICE   
+============================================================
+SELL     | STOCK1     |    100 | $10.00   
+
+BUY      | STOCK1     |    100 | $10.00   
+
+TRADE    | STOCK1     |    100 | $10.00    | Buy: 0 | Sell: 0
+
+SELL     | STOCK2     |    100 | $20.00   
+
+BUY      | STOCK2     |     50 | $25.00   
+
+TRADE    | STOCK2     |     50 | $20.00    | Buy: 0 | Sell: 50
+
+SELL     | STOCK3     |    100 | $30.00   
+
+BUY      | STOCK3     |    100 | $25.00   
+
+SELL     | STOCK4     |    100 | $40.00   
+
+BUY      | STOCK4     |     40 | $45.00   
+
+TRADE    | STOCK4     |     40 | $40.00    | Buy: 0 | Sell: 60
+
+BUY      | STOCK4     |     60 | $45.00   
+
+TRADE    | STOCK4     |     60 | $40.00    | Buy: 0 | Sell: 0
+
+SELL     | STOCK5     |    100 | $50.00   
+
+BUY      | STOCK6     |    100 | $50.00   
+

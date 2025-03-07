@@ -1,3 +1,6 @@
+Name: Shubham Navale 
+Email: snavale@binghamton.edu 
+
 # Stock Trading Engine
 
 A multi-threaded stock trading simulation engine that processes buy and sell orders for multiple stock tickers in real-time.
